@@ -43,7 +43,7 @@ class ApiService {
       body: json.encode(balance.toJson()),
     );
 
-    if (response.statusCode == 201) {
+    if (response.statusCode == 200) {
       return 'Balance added successfully!';
     } else {
       throw Exception('Failed to create balance');
@@ -67,12 +67,13 @@ class ApiService {
   Future<String> deleteBalance(int id) async {
     final response = await http.delete(Uri.parse('$baseUrl/balance/$id'));
 
-    if (response.statusCode == 204) {
+    if (response.statusCode == 200) {
       return 'Balance deleted successfully!';
     } else {
       throw Exception('Failed to delete balance');
     }
   }
+
   Future<List<Budget>> getBudgets() async {
     final response = await http.get(Uri.parse('$baseUrl/budget'));
     if (response.statusCode == 200) {
@@ -98,7 +99,7 @@ class ApiService {
       headers: {'Content-Type': 'application/json'},
       body: json.encode(budget.toJson()),
     );
-    if (response.statusCode == 201) {
+    if (response.statusCode == 200) {
       return 'Budget added successfully!';
     } else {
       throw Exception('Failed to create budget');
@@ -120,12 +121,13 @@ class ApiService {
 
   Future<String> deleteBudget(int id) async {
     final response = await http.delete(Uri.parse('$baseUrl/budget/$id'));
-    if (response.statusCode == 204) {
+    if (response.statusCode == 200) {
       return 'Budget deleted successfully!';
     } else {
       throw Exception('Failed to delete budget');
     }
   }
+
   Future<List<Currency>> getCurrencies() async {
     final response = await http.get(Uri.parse('$baseUrl/currency'));
     if (response.statusCode == 200) {
@@ -151,7 +153,7 @@ class ApiService {
       headers: {'Content-Type': 'application/json'},
       body: json.encode(currency.toJson()),
     );
-    if (response.statusCode == 201) {
+    if (response.statusCode == 200) {
       return 'Currency added successfully!';
     } else {
       throw Exception('Failed to create currency');
@@ -173,12 +175,13 @@ class ApiService {
 
   Future<String> deleteCurrency(int id) async {
     final response = await http.delete(Uri.parse('$baseUrl/currency/$id'));
-    if (response.statusCode == 204) {
+    if (response.statusCode == 200) {
       return 'Currency deleted successfully!';
     } else {
       throw Exception('Failed to delete currency');
     }
   }
+
   Future<List<Expense>> getExpenses() async {
     final response = await http.get(Uri.parse('$baseUrl/expense'));
     if (response.statusCode == 200) {
@@ -204,7 +207,7 @@ class ApiService {
       headers: {'Content-Type': 'application/json'},
       body: json.encode(expense.toJson()),
     );
-    if (response.statusCode == 201) {
+    if (response.statusCode == 200) {
       return 'Expense added successfully!';
     } else {
       throw Exception('Failed to create expense');
@@ -226,12 +229,13 @@ class ApiService {
 
   Future<String> deleteExpense(int id) async {
     final response = await http.delete(Uri.parse('$baseUrl/expense/$id'));
-    if (response.statusCode == 204) {
+    if (response.statusCode == 200) {
       return 'Expense deleted successfully!';
     } else {
       throw Exception('Failed to delete expense');
     }
   }
+
   Future<List<Income>> getIncomes() async {
     final response = await http.get(Uri.parse('$baseUrl/income'));
     if (response.statusCode == 200) {
@@ -257,7 +261,7 @@ class ApiService {
       headers: {'Content-Type': 'application/json'},
       body: json.encode(income.toJson()),
     );
-    if (response.statusCode == 201) {
+    if (response.statusCode == 200) {
       return 'Income added successfully!';
     } else {
       throw Exception('Failed to create income');
@@ -279,12 +283,13 @@ class ApiService {
 
   Future<String> deleteIncome(int id) async {
     final response = await http.delete(Uri.parse('$baseUrl/income/$id'));
-    if (response.statusCode == 204) {
+    if (response.statusCode == 200) {
       return 'Income deleted successfully!';
     } else {
       throw Exception('Failed to delete income');
     }
   }
+
   Future<List<Investment>> getInvestments() async {
     final response = await http.get(Uri.parse('$baseUrl/investment'));
     if (response.statusCode == 200) {
@@ -310,7 +315,7 @@ class ApiService {
       headers: {'Content-Type': 'application/json'},
       body: json.encode(investment.toJson()),
     );
-    if (response.statusCode == 201) {
+    if (response.statusCode == 200) {
       return 'Investment added successfully!';
     } else {
       throw Exception('Failed to create investment');
@@ -332,12 +337,13 @@ class ApiService {
 
   Future<String> deleteInvestment(int id) async {
     final response = await http.delete(Uri.parse('$baseUrl/investment/$id'));
-    if (response.statusCode == 204) {
+    if (response.statusCode == 200) {
       return 'Investment deleted successfully!';
     } else {
       throw Exception('Failed to delete investment');
     }
   }
+
   Future<List<DebtCredit>> getDebtCredits() async {
     final response = await http.get(Uri.parse('$baseUrl/debt_credit'));
     if (response.statusCode == 200) {
@@ -363,7 +369,7 @@ class ApiService {
       headers: {'Content-Type': 'application/json'},
       body: json.encode(debtCredit.toJson()),
     );
-    if (response.statusCode == 201) {
+    if (response.statusCode == 200) {
       return 'Debt and Credit added successfully!';
     } else {
       throw Exception('Failed to create debt and credit');
@@ -385,12 +391,13 @@ class ApiService {
 
   Future<String> deleteDebtCredit(int id) async {
     final response = await http.delete(Uri.parse('$baseUrl/debt_credit/$id'));
-    if (response.statusCode == 204) {
+    if (response.statusCode == 200) {
       return 'Debt and Credit deleted successfully!';
     } else {
       throw Exception('Failed to delete debt and credit');
     }
   }
+
   Future<List<MonthlyReport>> getMonthlyReports() async {
     final response = await http.get(Uri.parse('$baseUrl/monthly_report'));
     if (response.statusCode == 200) {
@@ -416,7 +423,7 @@ class ApiService {
       headers: {'Content-Type': 'application/json'},
       body: json.encode(monthlyReport.toJson()),
     );
-    if (response.statusCode == 201) {
+    if (response.statusCode == 200) {
       return 'Monthly report added successfully!';
     } else {
       throw Exception('Failed to create monthly report');
@@ -437,25 +444,30 @@ class ApiService {
   }
 
   Future<String> deleteMonthlyReport(int id) async {
-    final response = await http.delete(Uri.parse('$baseUrl/monthly_report/$id'));
-    if (response.statusCode == 204) {
+    final response =
+        await http.delete(Uri.parse('$baseUrl/monthly_report/$id'));
+    if (response.statusCode == 200) {
       return 'Monthly report deleted successfully!';
     } else {
       throw Exception('Failed to delete monthly report');
     }
   }
+
   Future<List<TransactionCategory>> getTransactionCategories() async {
     final response = await http.get(Uri.parse('$baseUrl/transaction_category'));
     if (response.statusCode == 200) {
       List jsonResponse = json.decode(response.body);
-      return jsonResponse.map((data) => TransactionCategory.fromJson(data)).toList();
+      return jsonResponse
+          .map((data) => TransactionCategory.fromJson(data))
+          .toList();
     } else {
       throw Exception('Failed to load transaction categories');
     }
   }
 
   Future<TransactionCategory> getTransactionCategory(int id) async {
-    final response = await http.get(Uri.parse('$baseUrl/transaction_category/$id'));
+    final response =
+        await http.get(Uri.parse('$baseUrl/transaction_category/$id'));
     if (response.statusCode == 200) {
       return TransactionCategory.fromJson(json.decode(response.body));
     } else {
@@ -463,20 +475,22 @@ class ApiService {
     }
   }
 
-  Future<String> createTransactionCategory(TransactionCategory transactionCategory) async {
+  Future<String> createTransactionCategory(
+      TransactionCategory transactionCategory) async {
     final response = await http.post(
       Uri.parse('$baseUrl/transaction_category'),
       headers: {'Content-Type': 'application/json'},
       body: json.encode(transactionCategory.toJson()),
     );
-    if (response.statusCode == 201) {
+    if (response.statusCode == 200) {
       return 'Transaction category added successfully!';
     } else {
       throw Exception('Failed to create transaction category');
     }
   }
 
-  Future<String> updateTransactionCategory(TransactionCategory transactionCategory) async {
+  Future<String> updateTransactionCategory(
+      TransactionCategory transactionCategory) async {
     final response = await http.put(
       Uri.parse('$baseUrl/transaction_category/${transactionCategory.id}'),
       headers: {'Content-Type': 'application/json'},
@@ -490,18 +504,22 @@ class ApiService {
   }
 
   Future<String> deleteTransactionCategory(int id) async {
-    final response = await http.delete(Uri.parse('$baseUrl/transaction_category/$id'));
-    if (response.statusCode == 204) {
+    final response =
+        await http.delete(Uri.parse('$baseUrl/transaction_category/$id'));
+    if (response.statusCode == 200) {
       return 'Transaction category deleted successfully!';
     } else {
       throw Exception('Failed to delete transaction category');
     }
   }
+
   Future<List<TransactionNote>> getTransactionNotes() async {
     final response = await http.get(Uri.parse('$baseUrl/transaction_note'));
     if (response.statusCode == 200) {
       List jsonResponse = json.decode(response.body);
-      return jsonResponse.map((data) => TransactionNote.fromJson(data)).toList();
+      return jsonResponse
+          .map((data) => TransactionNote.fromJson(data))
+          .toList();
     } else {
       throw Exception('Failed to load transaction notes');
     }
@@ -522,7 +540,7 @@ class ApiService {
       headers: {'Content-Type': 'application/json'},
       body: json.encode(transactionNote.toJson()),
     );
-    if (response.statusCode == 201) {
+    if (response.statusCode == 200) {
       return 'Transaction note added successfully!';
     } else {
       throw Exception('Failed to create transaction note');
@@ -543,12 +561,12 @@ class ApiService {
   }
 
   Future<String> deleteTransactionNote(int id) async {
-    final response = await http.delete(Uri.parse('$baseUrl/transaction_note/$id'));
-    if (response.statusCode == 204) {
+    final response =
+        await http.delete(Uri.parse('$baseUrl/transaction_note/$id'));
+    if (response.statusCode == 200) {
       return 'Transaction note deleted successfully!';
     } else {
       throw Exception('Failed to delete transaction note');
     }
   }
-
 }
